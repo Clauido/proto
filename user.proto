@@ -1,0 +1,33 @@
+syntax = "proto3";
+package users;;
+
+service UsersService{
+    rpc CreateUser: (CreateUserRequest) returns (CreateUserResponse){} 
+    rpc GetUsers: (Empy) returns(GetUserResponse){}
+    rpc GetUserById: (getUserByIdRequest); returns (GetUserByIdResponse){}
+}
+message Error {
+    int32 code=1;
+    string message=2;
+}
+message User{
+    string id=1;
+    string name=2;
+    string email=3
+}
+
+
+message CreateUserResquest{
+    string name =1
+    string email =2;
+    string password=3;
+}
+mesage CreateUserResponse{
+    User user=1;
+    Error error=2;
+}
+message GeteUsersResponse{
+    repeated User data=1;
+}
+
+message GEtUserBy
